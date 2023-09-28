@@ -1,7 +1,7 @@
 const MongoClient = require('mongodb').MongoClient;
 
 // Replace <username>, <password>, and <dbname> with your actual credentials and database name
-const uri = mongodb+srv:s3902846:<password>@itpathwaysdbcluster.3y10hhc.mongodb.net/?retryWrites=true&w=majority;
+const uri = mongodb+srv:s3902846:<Penguin420!>@itpathwaysdbcluster.3y10hhc.mongodb.net/?retryWrites=true&w=majority;
 
 
 // Create a MongoClient and connect to the MongoDB Atlas cluster
