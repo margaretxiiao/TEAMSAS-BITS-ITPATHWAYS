@@ -1,2 +1,0 @@
-# TEAMSAS-BITS-ITPATHWAYS
-I.T. Pathways Project
