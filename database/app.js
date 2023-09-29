@@ -9,7 +9,7 @@ const dbName = 'Web';
 const collectionName = 'Test'; 
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public')); // 
+app.use(express.static('signuppage.html')); // 
 
 app.post('/register', async (req, res) => {
     const { fullName, dateOfBirth, email, username, phone, password } = req.body;
