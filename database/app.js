@@ -1,82 +1,56 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-const bcrypt = require("bcrypt");
+const express = require('express');
+const bodyParser = require('body-parser');
+const { MongoClient } = require('mongodb');
 
 const app = express();
-const port = 3000;
-
-mongoose.connect("mongodb+srv://lekhanhtoan07:T14012003oan@server1.h0nl7gl.mongodb.net/", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+const port = process.env.PORT || 3000;
+const mongoUrl = 'mongodb+srv://lekhanhtoan07:T14012003oan@server1.h0nl7gl.mongodb.net/'; 
+const dbName = 'Web'; 
+const collectionName = 'Test'; 
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname + "/public"));
+app.use(express.static('public')); // 
 
-const userSchema = new mongoose.Schema({
-  username: String,
-  password: String
-});
+app.post('/register', async (req, res) => {
+    const { fullName, dateOfBirth, email, username, phone, password } = req.body;
 
-const User = mongoose.model("User", userSchema);
+    try {
+        const client = new MongoClient(mongoUrl, { useUnifiedTopology: true });
+        await client.connect();
 
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "signuppage.html");
-});
+        const db = client.db(dbName);
+        const collection = db.collection(collectionName);
 
-app.post("/signup", async (req, res) => {
-  const username = req.body.username;
-  const password = req.body.password;
+        // Check if email or username already exist
+        const existingUser = await collection.findOne({ $or: [{ email }, { username },{ phone }] });
+        if (existingUser) {
+            return res.send('Email or username or phone number already exists.');
+        }
 
-  try {
-    const hashedPassword = await bcrypt.hash(password, 10);
+        // Insert the new user into the database
+        const newUser = {
+            fullName,
+            dateOfBirth,
+            email,
+            username,
+            phone,
+            password, 
+        };
 
-    const newUser = new User({
-      username: username,
-      password: hashedPassword
-    });
+        const result = await collection.insertOne(newUser);
+        if (result.insertedCount === 1) {
+            res.send('Registration failed.');
+        } else {
+            res.send('Registration successful! ');
+        }
 
-    await newUser.save();
-    res.redirect("/success");
-  } catch (err) {
-    res.redirect("/error");
-  }
-});
-
-app.get("/success", (req, res) => {
-  res.send("Registration successful!");
-});
-
-app.get("/error", (req, res) => {
-  res.send("Error in registration.");
+        client.close();
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal server error');
+    }
 });
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
-
-
-app.post("/signup", async (req, res) => {
-  const username = req.body.username;
-  const password = req.body.password;
-  const fullName = req.body.fullName;
-  const email = req.body.email;
-
-  try {
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    const newUser = new User({
-      username: username,
-      password: hashedPassword,
-      fullName: fullName,
-      email: email,
-     
-    });
-
-    await newUser.save();
-    res.redirect("/success");
-  } catch (err) {
-    res.redirect("/error");
-  }
+    console.log(`Server is running on port ${port}`);
 });
