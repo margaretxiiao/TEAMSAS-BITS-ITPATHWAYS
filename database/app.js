@@ -24,7 +24,7 @@ app.post('/register', async (req, res) => {
         // Check if email or username already exist
         const existingUser = await collection.findOne({ $or: [{ email }, { username },{ phone }] });
         if (existingUser) {
-            return res.send('failed.html');
+            return res.send('failed');
         }
 
         // Insert the new user into the database
