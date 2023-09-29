@@ -3,13 +3,13 @@ const bodyParser = require('body-parser');
 const { MongoClient } = require('mongodb');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000; 
 const mongoUrl = 'mongodb+srv://lekhanhtoan07:T14012003oan@server1.h0nl7gl.mongodb.net/'; 
 const dbName = 'Web'; 
 const collectionName = 'Test'; 
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public')); // 
+app.use(express.static('public')); // Serve HTML and CSS files from the 'public' directory
 
 app.post('/register', async (req, res) => {
     const { fullName, dateOfBirth, email, username, phone, password } = req.body;
@@ -24,7 +24,7 @@ app.post('/register', async (req, res) => {
         // Check if email or username already exist
         const existingUser = await collection.findOne({ $or: [{ email }, { username },{ phone }] });
         if (existingUser) {
-            return res.send('failed');
+            return res.send('failedhtml');
         }
 
         // Insert the new user into the database
@@ -49,6 +49,10 @@ app.post('/register', async (req, res) => {
         console.error(error);
         res.status(500).send('Internal server error');
     }
+});
+
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 });
 
 app.listen(port, () => {
