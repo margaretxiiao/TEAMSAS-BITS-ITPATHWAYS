@@ -20,7 +20,6 @@
     </h1>
   </div>
   
-  
   <div class="content">
     <div class="welcome-text">
       <h2>Welcome User!</h2>
@@ -48,11 +47,16 @@
         <p class="selected-level">You are here: <span id="selected-level">____________</span></p>
       </div>
       
-      <button class="continue-button" href="pathway_python.html">Start Your Journey!</button>
+      <button id="start-journey-button" class="continue-button">Start Your Journey!</button>
     </div>
   </div>
 
-  <script src="pathwayselection.js"></script>
+  <script>
+    document.getElementById('start-journey-button').addEventListener('click', function() {
+      window.location.href = 'pathway_python.html';
+    });
+  </script>
+  
   <footer class="footer">
     <p class="footer-text"> BITS PROJECT <span class="highlight">s3902846, s3967899, s3914486, s3932146</span></p>
   </footer> 
