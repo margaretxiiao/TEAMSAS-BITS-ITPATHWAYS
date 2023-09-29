@@ -4,7 +4,7 @@ const { MongoClient } = require('mongodb');
 
 const app = express();
 const port = process.env.PORT || 3000;
-const mongoUrl = 'mongodb+srv://lekhanhtoan07:T14012003oan@server1.h0nl7gl.mongodb.net/'; 
+const mongoUrl = 'mongodb+srv://lekhanhtoan07:T14012003oan@server1.h0nl7gl.mongodbnet/'; 
 const dbName = 'Web'; 
 const collectionName = 'Test'; 
 
