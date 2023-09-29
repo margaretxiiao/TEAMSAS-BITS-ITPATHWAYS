@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model("User", userSchema);
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/views/signup/signup.html");
+  res.sendFile(__dirname + "signuppage.html");
 });
 
 app.post("/signup", async (req, res) => {
