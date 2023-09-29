@@ -30,6 +30,13 @@
     
     <label class="input-label" for="password">Password:</label>
     <input type="password" id="password" class="input-box" placeholder="At least 8 characters" required>
+
+    <label class="input-label for="phone">Phone Number:</label>
+     <input type="tel" id="phone" name="phone" required>
+    
+    <label class="input-label"for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <span id="username-error" class="error"></span>
     
     <label class="checkbox-label">
         <input type="checkbox" class="checkbox">
@@ -49,17 +56,51 @@
     </p>
   </div>
    <script>
-        const form = document.getElementById('registration-form');
-        form.addEventListener('submit', function (event) {
-            const fullName = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-    
-            if (!name || !email  || !password || ) {
-                event.preventDefault(); // Prevent form submission if fields are empty
-                document.getElementById('message').textContent = 'Please fill in all fields.';
-            }
-        });
+  const form = document.getElementById('registration-form');
+const emailInput = document.getElementById('email');
+const usernameInput = document.getElementById('username');
+const emailError = document.getElementById('email-error');
+const usernameError = document.getElementById('username-error');
+
+// Simulated list of existing emails and usernames (for demonstration)
+const existingEmails = ['user1@example.com', 'user2@example.com'];
+const existingUsernames = ['user1', 'user2'];
+
+form.addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent form submission for this example
+
+    const fullName = document.getElementById('fullName').value;
+    const dateOfBirth = document.getElementById('dateOfBirth').value;
+    const email = emailInput.value;
+    const username = usernameInput.value;
+    const phone = document.getElementById('phone').value;
+    const password = document.getElementById('password').value;
+
+    if (!fullName || !dateOfBirth || !email || !username || !phone || !password) {
+        document.getElementById('message').textContent = 'Please fill in all fields.';
+        return;
+    }
+
+    // Check if email already exists
+    if (existingEmails.includes(email)) {
+        emailError.textContent = 'Email already exists.';
+        return;
+    } else {
+        emailError.textContent = '';
+    }
+
+    // Check if username already exists
+    if (existingUsernames.includes(username)) {
+        usernameError.textContent = 'Username already exists.';
+        return;
+    } else {
+        usernameError.textContent = '';
+    }
+
+    // Continue with registration logic (e.g., sending data to the server)
+    document.getElementById('message').textContent = 'Registration successful!';
+});
+
     </script>
   
   <img src="images/favicon.png" alt="Logo" class="logo-image">
