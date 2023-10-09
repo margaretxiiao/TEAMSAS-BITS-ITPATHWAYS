@@ -119,11 +119,11 @@ body {
 
 .left-column {
   flex: 1;
+  margin-right: 20px; /* Add right margin to separate columns */
 }
 
 .right-column {
   flex: 1;
-  margin-left: 20px;
 }
 
 /* Video styles */
@@ -139,6 +139,8 @@ body {
 
 /* Footer styles */
 .footer {
+  position: fixed;
+  bottom: 0;
   background-color: #ff8686;
   padding: 10px 0;
   text-align: center;
