@@ -160,10 +160,13 @@ body {
   width: 100%;
   color: white;
 }
+
 .large-title {
   font-size: 36px;
   text-align: center;
   margin-top: 20px;
+  margin-bottom:100px;
+  padding: 50px;
 }
 
 .section-title {
@@ -190,6 +193,7 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   margin-top: 20px;
+  margin-bottom: 100px
 }
 
 .left-column {
