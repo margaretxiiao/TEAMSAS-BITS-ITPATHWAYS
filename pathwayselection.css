@@ -10,10 +10,14 @@ body {
   background-color: white;
   color: black;
   font-size: 18px;
-  min-height: 100vh;
-  position: relative; 
+  min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+  display: flex; /* Use flexbox to structure the layout */
+  flex-direction: column; /* Arrange child elements in a column */
 }
 
+.content {
+  flex: 1; /* Allow content to grow and fill available space */
+}
 .header {
   padding: 10px 0;
   text-align: center;
@@ -148,20 +152,14 @@ body {
   background-color: #404040;
 }
 
+
 .footer {
   background-color: #ff8686;
   padding: 10px 0;
   text-align: center;
-  position: absolute;
-  bottom: 0;
   width: 100%;
-}
-
-.footer-text {
-  font-size: 14px;
   color: white;
 }
-
 .large-title {
   font-size: 36px;
   text-align: center;
