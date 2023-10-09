@@ -1,8 +1,3 @@
-.logo {
-  max-height: 40px; 
-  vertical-align: middle;
-}
-
 /* Reset default margin and padding for all elements */
 * {
   margin: 0;
@@ -71,6 +66,12 @@ body {
   margin: 20px 0;
 }
 
+/* Logo styles */
+.logo {
+  max-height: 60px; /* Adjust the max-height as needed to control the logo size */
+  vertical-align: middle;
+}
+
 /* Content styles */
 .content {
   text-align: center;
@@ -85,6 +86,7 @@ body {
   padding: 50px;
 }
 
+/* Section title styles */
 .section-title {
   font-size: 24px;
   margin-top: 30px;
@@ -96,6 +98,7 @@ body {
   margin-top: 10px;
 }
 
+/* Checklist styles */
 .checklist {
   margin-top: 10px;
 }
@@ -123,6 +126,7 @@ body {
   margin-left: 20px;
 }
 
+/* Video styles */
 .video {
   margin-bottom: 20px;
 }
