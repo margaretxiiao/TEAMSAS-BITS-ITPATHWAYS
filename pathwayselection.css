@@ -3,14 +3,6 @@
   vertical-align: middle;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Calibri, Arial, sans-serif;
-  background-color: white;
-  color: black;
-  font-size: 18px;
-}
 
 .header {
   padding: 10px 0;
@@ -194,17 +186,6 @@ body {
   border: 2px solid #ff8686;
 }
 
-.button.contact-button {
-  background-color: #ffff00;
-  color: black;
-  border: 2px solid #ffff00;
-}
-
-.button.contact-button:hover {
-  background-color: black;
-  color: white;
-}
-
 .button.account-button {
   background-color: #ff8686;
   color: white;
@@ -215,17 +196,6 @@ body {
   margin: 20px 0;
 }
 
-/* Logo styles */
-.logo {
-  max-height: 60px; /* Adjust the max-height as needed to control the logo size */
-  vertical-align: middle;
-}
-
-/* Content styles */
-.content {
-  text-align: center;
-  margin-top: 50px;
-}
 
 .large-title {
   font-size: 36px;
