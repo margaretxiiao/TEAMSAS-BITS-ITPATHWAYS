@@ -114,10 +114,11 @@ body {
   }
 
 
-  .useful-resources-text {
-    font-size: 18px;
-    margin-top: 40px; /* Increase the top margin */
-  }
+.useful-resources-text {
+font-size: 18px;
+margin-top: 40px; /* Increase the top margin */
+margin-bottom: 100px
+}
   
 
 /* Footer styles */
