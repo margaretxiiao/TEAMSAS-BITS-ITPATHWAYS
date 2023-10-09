@@ -128,13 +128,19 @@ body {
 
 /* Video styles */
 .video {
+  width: 100%;
   margin-bottom: 20px;
 }
 
-/* Useful Resources text styles */
+.left-column {
+  flex: 1;
+  margin-right: 40px; /* Increase left column margin */
+}
+
+/* Increase margin above "Useful Resources" section */
 .useful-resources-text {
   font-size: 18px;
-  margin-top: 10px;
+  margin-top: 40px; /* Increase the top margin */
 }
 
 /* Footer styles */
